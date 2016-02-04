@@ -35,3 +35,40 @@ drwxr-xr-x  3 stuart  staff  102 Feb  3 15:45 ..
 ```
 $ dotnet restore
 ```
+
+*This resulted in a ton of log and info output and many errors about 
+
+```
+log  : Failed to download package from 'https://api.nuget.org/v3-flatcontainer/system.diagnostics.debug/4.0.10/system.diagnostics.debug.4.0.10.nupkg'.
+Too many open files
+```
+
+* Let's try
+
+```
+$ dotnet run
+```
+
+```
+Project hello_world does not have a lock file
+```
+
+#Fixing *Project hello_world does not have a lock file* error
+
+* Run ``dotnet restore`` multiple times until the errors go away
+
+```
+$ dotnet restore
+$ dotnet restore
+$ dotnet restore
+$ dotnet restore
+$ dotnet restore
+```
+
+* Finally generates the ``project.lock.json`` file
+
+#Running the .NET Program
+```
+$ dotnet run
+Hello World
+```
